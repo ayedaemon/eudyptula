@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "archlinux/archlinux"
+  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "public_network", bridge: "wlan0"
+
+
+  config.vm.synced_folder ".", "/vagrant_data"
+
+
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    id
+    # pacman -Syu --noconfirm linux-headers git make
+    echo "TERM=linux" >> /etc/profile
+  SHELL
+end

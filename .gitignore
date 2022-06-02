@@ -1,1 +1,12 @@
 .vagrant
+*.mod.c*
+*.mod.o
+*.ko*
+*.o
+*.cmd
+.tmp_versions/
+*.order
+*.symvers
+
+
+task-2/linux
