@@ -9,4 +9,5 @@
 *.symvers
 
 
-task-2/linux
+task-*/linux
+task-*/*.log
