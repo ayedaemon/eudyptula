@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-2.0+
+
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/delay.h>
@@ -31,7 +33,6 @@ int my_init(void)
 
 void my_exit(void)
 {
-	return;
 }
 
 module_init(my_init);
