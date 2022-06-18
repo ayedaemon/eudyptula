@@ -1,0 +1,32 @@
+From 1e3bc61883adf6a24606a7aae22a5f7d561accbb Mon Sep 17 00:00:00 2001
+From: ayedaemon <ris3234@gmail.com>
+Date: Sat, 18 Jun 2022 14:59:26 +0530
+Subject: [PATCH] [style fix] fixed style issues
+
++ removed void function return statement
++ added SPDX licence
+---
+ task-4/attached_modules/coding_style.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/task-4/attached_modules/coding_style.c b/task-4/attached_modules/coding_style.c
+index adc9a3d..49dd6ba 100644
+--- a/task-4/attached_modules/coding_style.c
++++ b/task-4/attached_modules/coding_style.c
+@@ -1,3 +1,5 @@
++// SPDX-License-Identifier: GPL-2.0+
++
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/delay.h>
+@@ -31,7 +33,6 @@ int my_init(void)
+ 
+ void my_exit(void)
+ {
+-	return;
+ }
+ 
+ module_init(my_init);
+-- 
+2.36.1
+

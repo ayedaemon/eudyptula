@@ -1,0 +1,26 @@
+From 40ae06d93dc41d4710d55740205d272c587ead99 Mon Sep 17 00:00:00 2001
+From: ayedaemon <ris3234@gmail.com>
+Date: Sat, 18 Jun 2022 14:34:24 +0530
+Subject: [PATCH] [Style fix] Added SPDX license
+
+Added GPL-2.0+ SPDX license to the module file.
+---
+ task-4/attached_modules/helloworld.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/task-4/attached_modules/helloworld.c b/task-4/attached_modules/helloworld.c
+index 97a5770..9944a24 100644
+--- a/task-4/attached_modules/helloworld.c
++++ b/task-4/attached_modules/helloworld.c
+@@ -1,6 +1,5 @@
+-/*
+-* helloworld.c
+-*/
++// SPDX-License-Identifier: GPL-2.0+
++
+ #include <linux/init.h>
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+-- 
+2.36.1
+
