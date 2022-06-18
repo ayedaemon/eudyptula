@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "archlinux/archlinux"
+  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "public_network", bridge: "wlan0"
+
+
+  config.vm.synced_folder ".", "/vagrant_data"
+
+
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    # Customize the amount of memory on the VM:
+    vb.memory = "512"
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    id
+
+    ##
+    ## If linux headers do not match the current kernel;
+    ## Upgrade the mirrors (Uncomment below 2 lines)
+    ##
+    # pacman -Syu pacman-contrib
+    # curl -s "https://archlinux.org/mirrorlist/?country=IN&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
+
+    pacman -Syu --noconfirm --needed \
+      git \
+      make \
+      linux-headers 
+
+    git clone --depth=1 git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git  /vagrant_data/linux
+
+    echo "TERM=linux" >> /etc/profile
+  SHELL
+end
