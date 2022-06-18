@@ -33,6 +33,7 @@ int my_init(void)
 
 void my_exit(void)
 {
+	// return;
 }
 
 module_init(my_init);
