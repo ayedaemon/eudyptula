@@ -1,15 +1,17 @@
-all: say_hello generate
+# Creates a variable (this points to the compiler)
+CC=gcc
 
-say_hello:
-	@echo "Hello World"
+# First target in the file, default.
+all: HelloWorld
 
-generate:
-	@echo "Creating empty text files..."
-	touch file-{1..10}.txt
+# Executes the source code
+HelloWorld: HelloWorld.o
+	./HelloWorld.o
 
+# Compile the source code
+HelloWorld.o: HelloWorld.c
+	${CC}  HelloWorld.c   -o HelloWorld.o 
+
+# Deletes the executable binary file
 clean:
-	@echo "Cleaning up..."
-	rm *.txt
-
-say_bye: clean
-	@echo "Bye World"
+	rm -rf HelloWorld.o

@@ -25,10 +25,9 @@ Vagrant.configure("2") do |config|
     pacman -Syu --noconfirm --needed \
       linux-headers \
       git \
-      make gcc pkg-config ncurses flex bison bc cpio\
+      make gcc pkg-config ncurses flex bison bc cpio \
       strace 
-    
-    mkdir -p linux
+  
     git clone --depth=1 git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git  /vagrant_data/linux
 
     # strace -o ../strace_make.log -T -ttt -f -- make -j4
