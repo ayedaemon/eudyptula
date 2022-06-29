@@ -1,4 +1,5 @@
 .vagrant
+*.mod
 *.mod.c*
 *.mod.o
 *.ko*
